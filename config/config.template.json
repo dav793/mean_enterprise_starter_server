@@ -1,0 +1,64 @@
+{
+
+  "DOCKER": {
+    "HTTP-WS": {
+      "PORT": 8080,
+      "SSL": {
+        "IS_ENABLED": false,
+        "PWD": "",
+        "KEY_PATH": "ssl/temp/key.pem",
+        "CERT_PATH": "ssl/temp/certificate.pem"
+      },
+      "AUTH": {
+        "JWT_SECRET": "MY_SECRET_KEY_LepI61NIoK1qG6UYtlO3rms5h1b0qVA7",
+        "DAYS_TO_EXPIRE": 7
+      }
+    },
+    "DB": {
+      "USER": "mean-enterprise-starter",
+      "PWD": "12345678",
+      "HOST": "mean-enterprise-starter-database",
+      "PORT": 27017,
+      "NAME": "mean-enterprise-starter",
+      "AUTH": true
+    }
+  },
+
+  "LOCAL": {
+    "HTTP-WS": {
+      "PORT": 8080,
+      "SSL": {
+        "IS_ENABLED": false,
+        "PWD": "",
+        "KEY_PATH": "ssl/temp/key.pem",
+        "CERT_PATH": "ssl/temp/certificate.pem"
+      },
+      "AUTH": {
+        "JWT_SECRET": "MY_SECRET_KEY_LepI61NIoK1qG6UYtlO3rms5h1b0qVA7",
+        "DAYS_TO_EXPIRE": 7
+      }
+    },
+    "DB": {
+      "USER": "mean-enterprise-starter",
+      "PWD": "12345678",
+      "HOST": "localhost",
+      "PORT": 27017,
+      "NAME": "mean-enterprise-starter",
+      "AUTH": true
+    }
+  },
+
+  "SYS_ENVIRONMENTS": {
+    "LOCAL": "local",
+    "DOCKER": "docker"
+  },
+
+  "NODE_ENVIRONMENTS": {
+    "PROD": "production",
+    "DEV": "development",
+    "TEST": "test"
+  },
+
+  "SYS_ENV": "local",
+  "NODE_ENV": "production"
+}
