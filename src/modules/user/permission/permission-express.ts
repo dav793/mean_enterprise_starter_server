@@ -1,5 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
-import { of } from "rxjs";
+import { of } from 'rxjs';
 
 import { IResourcePermissions } from '../role/role-interface';
 import { ResourceName } from '../../../shared/enums/resources';
@@ -76,7 +76,7 @@ class PermissionExpressLayer {
 
     public getPermissionOverResourceByUserId(req: Request, res: Response, next: NextFunction) {
         const userId = req.params.userId;
-        const resource = req.params.resource;
+        const resource = req.params.resource as ResourceName;
 
         PermissionController.getUserPermissions(userId).subscribe(
             (perms: IResourcePermissions[]) => {
@@ -89,8 +89,8 @@ class PermissionExpressLayer {
 
     public getPermissionToActionOverResourceByUserId(req: Request, res: Response, next: NextFunction) {
         const userId = req.params.userId;
-        const resource = req.params.resource;
-        const action = req.params.action;
+        const resource = req.params.resource as ResourceName;
+        const action = req.params.action as PermissionAction;
 
         PermissionController.getUserPermissions(userId).subscribe(
             (perms: IResourcePermissions[]) => {

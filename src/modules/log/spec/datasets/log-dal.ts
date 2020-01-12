@@ -1,4 +1,6 @@
-import {LogOperation, LogResourceName} from "../../log-enums";
+import {LogOperation, LogResourceName} from '../../log-enums';
+
+/* tslint:disable */
 
 module.exports = {
 

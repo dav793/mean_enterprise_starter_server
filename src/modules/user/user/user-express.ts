@@ -40,7 +40,7 @@ class UserExpressLayer {
             if (user) {
                 // user is found
                 if (user.deleted) {
-                    res.status(401).json(err);  // unauthorized                 ;
+                    res.status(401).json(err);  // unauthorized
                 } else {
                     res.status(200).json({
                         uid: user._id.toString(),
@@ -97,19 +97,6 @@ class UserExpressLayer {
         })(req, res, next);
     }
 
-    /**
-        We can call this method using:
-
-        {
-            "username": "andres",
-            "firstName": "andres",
-            "lastName": "navarrete",
-            "email": "andres@gmail.com",
-            "roleIds": ['5d4df8199874cf77c7fa8d2a'],
-            "password": "andres"
-        }
-    
-    */
     public register(req: Request, res: Response, next: NextFunction) {
 
         const userData: IUserRegisterBody = req.body;

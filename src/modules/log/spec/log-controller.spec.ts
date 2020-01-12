@@ -14,6 +14,8 @@ import {
     UserGroupLog
 } from '../log-model';
 
+/* tslint:disable */
+
 describe('LogController => logOperation', () => {
 
     it('should correctly log a CREATE operation', (done) => {

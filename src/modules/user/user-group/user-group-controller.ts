@@ -12,9 +12,9 @@ import { userGroupDalSingleton as UserGroupDal } from './user-group-dal';
 import { IUserGroupModel } from './user-group-model';
 import { IUserGroupUpdateBody, IUserGroupCreateBody } from './user-group-interface';
 import { IReqMetadata } from '../../../shared/helpers/request-metadata-factory';
-import {logControllerSingleton as LogController} from "../../log/log-controller";
-import {LogOperation, LogResourceName} from "../../log/log-enums";
-import {ErrorName} from "../../../shared/enums/errors";
+import {logControllerSingleton as LogController} from '../../log/log-controller';
+import {LogOperation, LogResourceName} from '../../log/log-enums';
+import {ErrorName} from '../../../shared/enums/errors';
 
 class UserGroupController {
 

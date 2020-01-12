@@ -9,7 +9,7 @@ import {IUserModel} from './user-model';
 import {IUserRegisterBody, IUserUpdateBody} from './user-interface';
 import {IReqMetadata} from '../../../shared/helpers/request-metadata-factory';
 import {logControllerSingleton as LogController} from '../../log/log-controller';
-import {LogOperation, LogResourceName} from "../../log/log-enums";
+import {LogOperation, LogResourceName} from '../../log/log-enums';
 
 class UserController {
 

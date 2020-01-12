@@ -1,3 +1,4 @@
+/* tslint:disable */
 
 const list = [
     { code : 'ab', name : 'Abkhazian' },

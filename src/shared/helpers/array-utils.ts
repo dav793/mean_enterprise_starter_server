@@ -17,26 +17,26 @@ export function removeArrayDuplicates(arr: any[]): any[] {
  *
  * assumes that <a1> and <a2> are arrays, and that they both contain only primitive values.
  *
- * @param a1
- * @param a2
+ * @param a1 array 1
+ * @param a2 array 2
  * @return boolean
  */
 export function areArraysEqualSets(a1, a2): boolean {
-    let superSet = {};
-    for (let i = 0; i < a1.length; i++) {
-        const e = a1[i] + typeof a1[i];
+    const superSet = {};
+    for (const i of a1) {
+        const e = i + typeof i;
         superSet[e] = 1;
     }
 
-    for (let i = 0; i < a2.length; i++) {
-        const e = a2[i] + typeof a2[i];
+    for (const i of a2) {
+        const e = i + typeof i;
         if (!superSet[e]) {
             return false;
         }
         superSet[e] = 2;
     }
 
-    for (let e in superSet) {
+    for (const e in superSet) {
         if (superSet[e] === 1) {
             return false;
         }

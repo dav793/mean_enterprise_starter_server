@@ -1,5 +1,7 @@
 import {Observable, of, Subject} from 'rxjs';
-import {first, mergeMap} from "rxjs/operators";
+import {first, mergeMap} from 'rxjs/operators';
+
+/* tslint:disable:variable-name */
 
 class RequestAuthenticationModule {
 
@@ -18,8 +20,8 @@ class RequestAuthenticationModule {
      *
      * if any of the previous conditions is not met, the observable emits false.
      *
-     * @param clientId
-     * @param userId
+     * @param clientId client id
+     * @param userId user id
      * @return Observable<boolean>
      */
     createAttemptListener(clientId: string, userId: string): Observable<boolean> {

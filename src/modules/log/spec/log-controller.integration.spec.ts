@@ -16,6 +16,8 @@ import { Role } from '../../user/role/role-model';
 
 const dataset = require('./datasets/log-controller.integration');
 
+/* tslint:disable */
+
 describe('LogController => integration', () => {
 
     it('should correctly log an UPDATE operation after a call to UserController.updateUser', (done) => {

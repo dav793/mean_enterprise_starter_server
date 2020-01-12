@@ -4,7 +4,7 @@ import {of} from 'rxjs';
 import {LogResourceName} from '../../modules/log/log-enums';
 import {operationLogDalSingleton as LogDal} from '../../modules/log/log-dal';
 import {logControllerSingleton as LogController} from '../../modules/log/log-controller';
-import {switchMap} from "rxjs/operators";
+import {switchMap} from 'rxjs/operators';
 
 export class IndexRouter {
     router: Router;

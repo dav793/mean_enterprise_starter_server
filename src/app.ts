@@ -48,7 +48,11 @@ class App {
         } else {
             url = `mongodb://${Config.get('DB').HOST}:${Config.get('DB').PORT}/${Config.get('DB').NAME}`;
         }
-        mongoose.connect(url, { useNewUrlParser: true, useFindAndModify: false });
+        mongoose.connect(url, {
+            useNewUrlParser: true,
+            useFindAndModify: false,
+            useUnifiedTopology: true
+        });
 
         const db = mongoose.connection;
         db.on('error', console.error.bind(console, 'connection error:'));

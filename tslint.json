@@ -60,6 +60,7 @@
             "as-needed"
         ],
         "object-literal-sort-keys": false,
+        "object-literal-shorthand": false,
         "one-line": false,
         "only-arrow-functions": false,
         "ordered-imports": false,

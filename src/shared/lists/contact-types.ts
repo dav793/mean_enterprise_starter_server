@@ -1,9 +1,9 @@
 
 const list = [
-    {id:"1",name:"Persona física",riskLevel:1},
-    {id:"2",name:"Persona jurídica",riskLevel:2},
-    {id:"3",name:"Persona física sin actividad lucrativa",riskLevel:3},
-    {id:"4",name:"Persona jurídica de estructura compleja",riskLevel:4}
+    {id: '1', name: 'Persona física', riskLevel: 1},
+    {id: '2', name: 'Persona jurídica', riskLevel: 2},
+    {id: '3', name: 'Persona física sin actividad lucrativa', riskLevel: 3},
+    {id: '4', name: 'Persona jurídica de estructura compleja', riskLevel: 4}
 ];
 
 class ContactTypesUtility {
@@ -23,18 +23,18 @@ class ContactTypesUtility {
     }
 
     isPhysicalContact(contactType: string): boolean {
-        let ids = this.getPhysicalContactList().map(elem => elem.id);
-        for (let i  = 0; i < ids.length; ++i) {
-            if (contactType === ids[i])
+        const ids = this.getPhysicalContactList().map(elem => elem.id);
+        for (const id of ids) {
+            if (contactType === id)
                 return true;
         }
         return false;
     }
 
     isCorporateContact(contactType: string): boolean {
-        let ids = this.getCorporateContactList().map(elem => elem.id);
-        for (let i  = 0; i < ids.length; ++i) {
-            if (contactType === ids[i])
+        const ids = this.getCorporateContactList().map(elem => elem.id);
+        for (const id of ids) {
+            if (contactType === id)
                 return true;
         }
         return false;

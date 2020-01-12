@@ -18,6 +18,8 @@ import Utils from '../../shared/helpers/utils';
 
 import * as _ from 'lodash';
 
+/* tslint:disable:whitespace */
+
 class LogController {
 
     constructor() {}
@@ -37,13 +39,15 @@ class LogController {
                 break;
             case LogResourceName.PHYSICAL_CONTACT:
                 action = OperationLogDal.addPhysicalContactLog;
+                break;
             case LogResourceName.CORPORATE_CONTACT:
                 action = OperationLogDal.addCorporateContactLog;
+                break;
         }
 
         if (action) {
             const changes = this.extractDifferences(original, modified);
-            let logData: IOperationLog = {
+            const logData: IOperationLog = {
                 datetime: new Date(),
                 userId: meta.userId,
                 entity: resource,
@@ -147,7 +151,7 @@ class LogController {
      */
     extractDifferences(original: {[key: string]: any}, modified: {[key: string]: any}, maxLevels = 5): {[key: string]: any} {
 
-        let diff = {};
+        const diff = {};
 
         if ( Utils.isEmptyObj(original) ) {
             return _.cloneDeep(modified);
