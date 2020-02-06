@@ -137,11 +137,11 @@ describe('ContactDal => createContact', () => {
     it('should create contact in DB and emit created contact', (done) => {
 
         const reqBody = {
-            contactname : 'mcab',
+            // contactname : 'mcab',
             firstName : 'Manuel',
             lastName : 'Cabrales',
             email : 'test@email.com',
-            password: '12345678'
+            // password: '12345678'
         };
 
         ContactDal.createContact(reqBody)
@@ -162,11 +162,11 @@ describe('ContactDal => createContact', () => {
     it('should throw error if contactname is not unique', (done) => {
 
         const reqBody = {
-            contactname : 'admin',     // contactname is taken
+            // contactname : 'admin',     // contactname is taken
             firstName : 'Manuel',
             lastName : 'Cabrales',
             email : 'test@email.com',
-            password: '12345678'
+            // password: '12345678'
         };
 
         ContactDal.createContact(reqBody)
@@ -183,7 +183,7 @@ describe('ContactDal => createContact', () => {
     it('should throw error if password is not given', (done) => {
 
         const reqBody = {
-            contactname : 'mcab',
+            // contactname : 'mcab',
             firstName : 'Manuel',
             lastName : 'Cabrales',
             email : 'test@email.com',
