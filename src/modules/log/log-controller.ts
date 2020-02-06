@@ -37,11 +37,14 @@ class LogController {
             case LogResourceName.ROLE:
                 action = OperationLogDal.addRoleLog;
                 break;
-            case LogResourceName.PHYSICAL_CONTACT:
-                action = OperationLogDal.addPhysicalContactLog;
-                break;
-            case LogResourceName.CORPORATE_CONTACT:
-                action = OperationLogDal.addCorporateContactLog;
+            // case LogResourceName.PHYSICAL_CONTACT:
+            //     action = OperationLogDal.addPhysicalContactLog;
+            //     break;
+            // case LogResourceName.CORPORATE_CONTACT:
+            //     action = OperationLogDal.addCorporateContactLog;
+            //     break;
+            case LogResourceName.CONTACT:
+                action = OperationLogDal.addContactLog;
                 break;
         }
 
@@ -76,11 +79,14 @@ class LogController {
             case LogResourceName.ROLE:
                 logsFetcher = OperationLogDal.getRoleLogsByIdAfterDate(targetLogEntry.documentId, targetLogEntry.datetime);
                 break;
-            case LogResourceName.PHYSICAL_CONTACT:
-                logsFetcher = OperationLogDal.getPhysicalContactLogsByIdAfterDate(targetLogEntry.documentId, targetLogEntry.datetime);
-                break;
-            case LogResourceName.CORPORATE_CONTACT:
-                logsFetcher = OperationLogDal.getCorporateContactLogsByIdAfterDate(targetLogEntry.documentId, targetLogEntry.datetime);
+            // case LogResourceName.PHYSICAL_CONTACT:
+            //     logsFetcher = OperationLogDal.getPhysicalContactLogsByIdAfterDate(targetLogEntry.documentId, targetLogEntry.datetime);
+            //     break;
+            // case LogResourceName.CORPORATE_CONTACT:
+            //     logsFetcher = OperationLogDal.getCorporateContactLogsByIdAfterDate(targetLogEntry.documentId, targetLogEntry.datetime);
+            //     break;
+            case LogResourceName.CONTACT:
+                logsFetcher = OperationLogDal.getContactLogsByIdAfterDate(targetLogEntry.documentId, targetLogEntry.datetime);
                 break;
             default:
                 const err = new Error(`unrecognized entity: ${targetLogEntry.entity}`);
@@ -110,8 +116,11 @@ class LogController {
                     case LogResourceName.ROLE:
                         saveAction = RoleController.revertRole(targetLogEntry.documentId, newDoc as any, meta);
                         break;
-                    case LogResourceName.PHYSICAL_CONTACT:
-                    case LogResourceName.CORPORATE_CONTACT:
+                    // case LogResourceName.PHYSICAL_CONTACT:
+                    // case LogResourceName.CORPORATE_CONTACT:
+                    //     saveAction = ContactController.revertContact(targetLogEntry.documentId, newDoc as any, meta);
+                    //     break;
+                    case LogResourceName.CONTACT:
                         saveAction = ContactController.revertContact(targetLogEntry.documentId, newDoc as any, meta);
                         break;
                     default:
