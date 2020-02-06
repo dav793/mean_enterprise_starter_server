@@ -132,79 +132,79 @@ describe('ContactDal => updateContact', () => {
 
 });
 
-describe('ContactDal => createContact', () => {
+// describe('ContactDal => createContact', () => {
 
-    it('should create contact in DB and emit created contact', (done) => {
+//     it('should create contact in DB and emit created contact', (done) => {
 
-        const reqBody = {
-            // contactname : 'mcab',
-            firstName : 'Manuel',
-            lastName : 'Cabrales',
-            email : 'test@email.com',
-            // password: '12345678'
-        };
+//         const reqBody = {
+//             // contactname : 'mcab',
+//             firstName : 'Manuel',
+//             lastName : 'Cabrales',
+//             email : 'test@email.com',
+//             // password: '12345678'
+//         };
 
-        ContactDal.createContact(reqBody)
-            .subscribe((contact: IContactModel) => {
+//         ContactDal.createContact(reqBody)
+//             .subscribe((contact: IContactModel) => {
 
-                // expect(contact.contactname).toEqual('mcab');
-                expect(contact.firstName).toEqual('Manuel');
-                expect(contact.lastName).toEqual('Cabrales');
-                done();
+//                 // expect(contact.contactname).toEqual('mcab');
+//                 expect(contact.firstName).toEqual('Manuel');
+//                 expect(contact.lastName).toEqual('Cabrales');
+//                 done();
 
-            }, err => {
-                fail(err);
-                done();
-            });
+//             }, err => {
+//                 fail(err);
+//                 done();
+//             });
 
-    });
+//     });
 
-    it('should throw error if contactname is not unique', (done) => {
+//     it('should throw error if contactname is not unique', (done) => {
 
-        const reqBody = {
-            // contactname : 'admin',     // contactname is taken
-            firstName : 'Manuel',
-            lastName : 'Cabrales',
-            email : 'test@email.com',
-            // password: '12345678'
-        };
+//         const reqBody = {
+//             // contactname : 'admin',     // contactname is taken
+//             firstName : 'Manuel',
+//             lastName : 'Cabrales',
+//             email : 'test@email.com',
+//             // password: '12345678'
+//         };
 
-        ContactDal.createContact(reqBody)
-            .subscribe((contact: IContactModel) => {
-                fail('should not emit');
-                done();
-            }, err => {
-                expect(err.name).toEqual(ErrorName.NON_UNIQUE_USERNAME);
-                done();
-            });
+//         ContactDal.createContact(reqBody)
+//             .subscribe((contact: IContactModel) => {
+//                 fail('should not emit');
+//                 done();
+//             }, err => {
+//                 expect(err.name).toEqual(ErrorName.NON_UNIQUE_USERNAME);
+//                 done();
+//             });
 
-    });
+//     });
 
-    it('should throw error if password is not given', (done) => {
+//     it('should throw error if password is not given', (done) => {
 
-        const reqBody = {
-            // contactname : 'mcab',
-            firstName : 'Manuel',
-            lastName : 'Cabrales',
-            email : 'test@email.com',
-            // password: '12345678'
-        };
+//         const reqBody = {
+//             // contactname : 'mcab',
+//             firstName : 'Manuel',
+//             lastName : 'Cabrales',
+//             email : 'test@email.com',
+//             // password: '12345678'
+//         };
 
-        ContactDal.createContact(reqBody as any)
-            .subscribe((contact: IContactModel) => {
-                fail('should not emit');
-                done();
-            }, err => {
-                expect(err.name).toEqual(ErrorName.PASSWORD_MISSING);
-                done();
-            });
+//         ContactDal.createContact(reqBody as any)
+//             .subscribe((contact: IContactModel) => {
+//                 fail('should not emit');
+//                 done();
+//             }, err => {
+//                 expect(err.name).toEqual(ErrorName.PASSWORD_MISSING);
+//                 done();
+//             });
 
-    });
+//     });
 
-    beforeEach((done) => connectDb(done));
-    afterEach(() => disconnectDb());
+//     beforeEach((done) => connectDb(done));
+//     afterEach(() => disconnectDb());
 
-});
+// });
 
 const loadDataset = () => from( Contact.create(dataset.contacts) );
 
