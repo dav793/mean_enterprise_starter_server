@@ -11,6 +11,7 @@ export interface IIdentification {
     idType: string;
     idNumber: string;
     expirationDate: Date;
+    expeditedBy: string;
     isMainId: boolean;
 }
 

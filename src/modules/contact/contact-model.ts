@@ -10,6 +10,7 @@ export let IdentificationSchema: Schema = new Schema({
     idType: String,
     idNumber: String,
     expirationDate: Date,
+    expeditedBy: String,
     isMainId: {
         type: Boolean,
         default: false
