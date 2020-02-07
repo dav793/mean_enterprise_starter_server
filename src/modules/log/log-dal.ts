@@ -4,8 +4,7 @@ import { map } from 'rxjs/operators';
 import { userDalSingleton as UserDal } from '../user/user/user-dal';
 import { userGroupDalSingleton as UserGroupDal } from '../user/user-group/user-group-dal';
 import { roleDalSingleton as RoleDal } from '../user/role/role-dal';
-import { physicalContactDalSingleton as PhysicalContactDal } from '../contact/physical-contact-dal';
-import { corporateContactDalSingleton as CorporateContactDal } from '../contact/corporate-contact-dal';
+import { contactDalSingleton as ContactDal } from '../contact/contact-dal';
 
 import {LogResourceName} from './log-enums';
 import {IOperationLog} from './log-interface';
@@ -14,13 +13,11 @@ import {
     IRoleLogModel,
     IUserGroupLogModel,
     IUserLogModel,
-    IPhysicalContactLogModel,
-    ICorporateContactLogModel,
+    IContactLogModel,
     RoleLog,
     UserGroupLog,
     UserLog,
-    PhysicalContactLog,
-    CorporateContactLog
+    ContactLog
 } from './log-model';
 
 class OperationLogDal {
@@ -111,60 +108,32 @@ class OperationLogDal {
         return from( RoleLog.create(logData) );
     }
 
-    getPhysicalContactLogs(): Observable<IPhysicalContactLogModel[]> {
-        return from( PhysicalContactLog.find({}) );
+    getContactLogs(): Observable<IContactLogModel[]> {
+        return from( ContactLog.find({}) );
     }
 
     /**
-     * Find all physical contact logs associated to a Physical Contact with _id <docId>, created at or after <date>,
+     * Find all contact logs associated to a Contact with _id <docId>, created at or after <date>,
      * sorted by descending datetime (most recent first)
      */
-    getPhysicalContactLogsByIdAfterDate(docId: string, date: Date): Observable<IPhysicalContactLogModel[]> {
+    getContactLogsByIdAfterDate(docId: string, date: Date): Observable<IContactLogModel[]> {
         const inputDate = new Date(date.toISOString());
-        return from( PhysicalContactLog.find({
+        return from( ContactLog.find({
             documentId: docId,
             datetime: { $gte: inputDate }
         })).pipe(
-            map((logs: IPhysicalContactLogModel[]) => {
+            map((logs: IContactLogModel[]) => {
                 return logs.sort((a, b) => (b.datetime as any) - (a.datetime as any));
             })
         );
     }
 
-    getPhysicalContactLogById(logId: string): Observable<IPhysicalContactLogModel> {
-        return from( PhysicalContactLog.findById(logId) );
+    getContactLogById(logId: string): Observable<IContactLogModel> {
+        return from( ContactLog.findById(logId) );
     }
 
-    addPhysicalContactLog(logData: IOperationLog): Observable<IPhysicalContactLogModel> {
-        return from( PhysicalContactLog.create(logData) );
-    }
-
-    getCorporateContactLogs(): Observable<ICorporateContactLogModel[]> {
-        return from( CorporateContactLog.find({}) );
-    }
-
-    /**
-     * Find all corporate contact logs associated to a Corporate Contact with _id <docId>, created at or after <date>,
-     * sorted by descending datetime (most recent first)
-     */
-    getCorporateContactLogsByIdAfterDate(docId: string, date: Date): Observable<ICorporateContactLogModel[]> {
-        const inputDate = new Date(date.toISOString());
-        return from( CorporateContactLog.find({
-            documentId: docId,
-            datetime: { $gte: inputDate }
-        })).pipe(
-            map((logs: ICorporateContactLogModel[]) => {
-                return logs.sort((a, b) => (b.datetime as any) - (a.datetime as any));
-            })
-        );
-    }
-
-    getCorporateContactLogById(logId: string): Observable<ICorporateContactLogModel> {
-        return from( CorporateContactLog.findById(logId) );
-    }
-
-    addCorporateContactLog(logData: IOperationLog): Observable<ICorporateContactLogModel> {
-        return from( CorporateContactLog.create(logData) );
+    addContactLog(logData: IOperationLog): Observable<IContactLogModel> {
+        return from( ContactLog.create(logData) );
     }
 
     findDocumentByEntity(docId: string, entity: LogResourceName): Observable<IAnyEntityModel | null> {
@@ -178,11 +147,8 @@ class OperationLogDal {
             case LogResourceName.ROLE:
                 return RoleDal.getRoleById(docId) as Observable<IAnyEntityModel>;
 
-            case LogResourceName.PHYSICAL_CONTACT:
-                return PhysicalContactDal.getContactById(docId) as Observable<IAnyEntityModel>;
-
-            case LogResourceName.CORPORATE_CONTACT:
-                return CorporateContactDal.getContactById(docId) as Observable<IAnyEntityModel>;
+            case LogResourceName.CONTACT:
+                return ContactDal.getContactById(docId) as Observable<IAnyEntityModel>;
         }
         return of(null);
     }

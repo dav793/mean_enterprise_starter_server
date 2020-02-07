@@ -10,7 +10,6 @@ export enum LogResourceName {
     USER                = 'user',
     USER_GROUP          = 'userGroup',
     ROLE                = 'role',
-    PHYSICAL_CONTACT    = 'physicalContact',
-    CORPORATE_CONTACT   = 'corporateContact',
+    CONTACT             = 'contact',
     ACCOUNT             = 'account'
 }

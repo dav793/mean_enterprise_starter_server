@@ -15,8 +15,7 @@ export enum SocketMessageType {
     UPDATE_USERS                    = 'updateUsers',
     UPDATE_USER_GROUPS              = 'updateUserGroups',
     UPDATE_ROLES                    = 'updateRoles',
-    UPDATE_PHYSICAL_CONTACTS        = 'updatePhysicalContacts',
-    UPDATE_CORPORATE_CONTACTS       = 'updateCorporateContacts',
+    UPDATE_CONTACTS                 = 'updateContacts',
     UPDATE_ACCOUNTS                 = 'updateAccounts'
 }
 
@@ -43,11 +42,7 @@ export interface IUpdateRolesPayload {
     originatorId: string;
 }
 
-export interface IUpdatePhysicalContactsPayload {
-    originatorId: string;
-}
-
-export interface IUpdateCorporateContactsPayload {
+export interface IUpdateContactsPayload {
     originatorId: string;
 }
 
@@ -60,8 +55,7 @@ export type SocketMessagePayloadType =  IAssignClientIdPayload |        // <- ad
                                         IUpdateUsersPayload |
                                         IUpdateUserGroupsPayload |
                                         IUpdateRolesPayload |
-                                        IUpdatePhysicalContactsPayload |
-                                        IUpdateCorporateContactsPayload |
+                                        IUpdateContactsPayload |
                                         IUpdateAccountsPayload |
                                         {};
 

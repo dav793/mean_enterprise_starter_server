@@ -7,11 +7,6 @@ export interface IAddress {
     postalCode: string;
 }
 
-export interface IPhoneNumber {
-    phoneNumber: string;
-    detail: string;
-}
-
 export interface IIdentification {
     idType: string;
     idNumber: string;
@@ -19,199 +14,89 @@ export interface IIdentification {
     isMainId: boolean;
 }
 
-export interface ICorporateRepresentative {
-    name: string;
-    relation: string;
-    participationPercentage: number;
-    addressLine: string;
-}
-
-export interface ICommercialReference {
-    name: string;
-    phoneNumber: string;
-}
-
-export interface IPhysicalContact {
+export interface IContact {
     contactType: string;
+
     firstName: string;
     middleName: string;
     lastName: string;
-    mothersMaidenName: string;
+    salutation: string;
+    alias: string;
     gender: string;
     maritalStatus: string;
-    nationalities: string[];
+    dateOfBirth: string;
     countryOfBirth: string;
-    birthDate: Date;
+
+    corporateName: string;
+    dateOfConstitution: string;
+    countryOfConstitution: string;
+
     homePhoneNumber: string;
     mobilePhoneNumber: string;
+    workPhoneNumber: string;
     email: string;
-    isPep: boolean;
     identifications: IIdentification[];
     addresses: IAddress[];
     profession: string;
     jobPosition: string;
-    companyName: string;
-    companyActivity: string;
-    companyPhoneNumber: string;
-    companyAddressLine: string;
-    grossMonthlyIncome: number;
-    sourcesOfIncome: string;
-    sourcesOfFunds: string[];
-    otherSourcesOfFunds: string;
-    countriesOfFundsOrigin: string[];
-    purposeOfFunds: string[];
-    otherPurposesOfFunds: string;
-    estimatedAmountOfTransactions: string;
+
     deleted: boolean;
     createdAt?: Date;
     updatedAt?: Date;
 }
 
-export interface ICorporateContact {
+export interface IContactCreateBody {
     contactType: string;
-    corporationName: string;
-    corporationType: string;
-    corporationIdNumber: string;
-    dateOfConstitution: Date;
+
+    firstName: string;
+    middleName: string;
+    lastName: string;
+    salutation: string;
+    alias: string;
+    gender: string;
+    maritalStatus: string;
+    dateOfBirth: string;
+    countryOfBirth: string;
+
+    corporateName: string;
+    dateOfConstitution: string;
     countryOfConstitution: string;
+
+    homePhoneNumber: string;
+    mobilePhoneNumber: string;
+    workPhoneNumber: string;
     email: string;
-    languagesSpoken: string[];
-    phoneNumbers: IPhoneNumber[];
-    isPep: boolean;
-    namesOfPeps: string[];
-    corporateRepresentatives: ICorporateRepresentative[];
-    commercialReferences: ICommercialReference[];
+    identifications: IIdentification[];
     addresses: IAddress[];
-    companyActivity: string;
-    grossMonthlyIncome: number;
-    sourcesOfIncome: string;
-    sourcesOfFunds: string[];
-    otherSourcesOfFunds: string;
-    countriesOfFundsOrigin: string[];
-    purposeOfFunds: string[];
-    otherPurposesOfFunds: string;
-    estimatedAmountOfTransactions: string;
-    deleted: boolean;
-    createdAt?: Date;
-    updatedAt?: Date;
+    profession: string;
+    jobPosition: string;
 }
 
-export interface IPhysicalContactCreateBody {
+export interface IContactUpdateBody {
     contactType?: string;
+
     firstName?: string;
     middleName?: string;
     lastName?: string;
-    mothersMaidenName?: string;
+    salutation?: string;
+    alias?: string;
     gender?: string;
     maritalStatus?: string;
-    nationalities?: string[];
+    dateOfBirth?: string;
     countryOfBirth?: string;
-    birthDate?: Date;
+
+    corporateName?: string;
+    dateOfConstitution?: string;
+    countryOfConstitution?: string;
+
     homePhoneNumber?: string;
     mobilePhoneNumber?: string;
+    workPhoneNumber?: string;
     email?: string;
-    isPep?: boolean;
     identifications?: IIdentification[];
     addresses?: IAddress[];
     profession?: string;
     jobPosition?: string;
-    companyName?: string;
-    companyActivity?: string;
-    companyPhoneNumber?: string;
-    companyAddressLine?: string;
-    grossMonthlyIncome?: number;
-    sourcesOfIncome?: string;
-    sourcesOfFunds?: string[];
-    otherSourcesOfFunds?: string;
-    countriesOfFundsOrigin?: string[];
-    purposeOfFunds?: string[];
-    otherPurposesOfFunds?: string;
-    estimatedAmountOfTransactions?: string;
-}
 
-export interface IPhysicalContactUpdateBody {
-    contactType?: string;
-    firstName?: string;
-    middleName?: string;
-    lastName?: string;
-    mothersMaidenName?: string;
-    gender?: string;
-    maritalStatus?: string;
-    nationalities?: string[];
-    countryOfBirth?: string;
-    birthDate?: Date;
-    homePhoneNumber?: string;
-    mobilePhoneNumber?: string;
-    email?: string;
-    isPep?: boolean;
-    identifications?: IIdentification[];
-    addresses?: IAddress[];
-    profession?: string;
-    jobPosition?: string;
-    companyName?: string;
-    companyActivity?: string;
-    companyPhoneNumber?: string;
-    companyAddressLine?: string;
-    grossMonthlyIncome?: number;
-    sourcesOfIncome?: string;
-    sourcesOfFunds?: string[];
-    otherSourcesOfFunds?: string;
-    countriesOfFundsOrigin?: string[];
-    purposeOfFunds?: string[];
-    otherPurposesOfFunds?: string;
-    estimatedAmountOfTransactions?: string;
-}
-
-export interface ICorporateContactCreateBody {
-    contactType?: string;
-    corporationName?: string;
-    corporationType?: string;
-    corporationIdNumber?: string;
-    dateOfConstitution?: Date;
-    countryOfConstitution?: string;
-    email?: string;
-    languagesSpoken?: string[];
-    phoneNumbers?: IPhoneNumber[];
-    isPep?: boolean;
-    namesOfPeps?: string[];
-    corporateRepresentatives?: ICorporateRepresentative[];
-    commercialReferences?: ICommercialReference[];
-    addresses?: IAddress[];
-    companyActivity?: string;
-    grossMonthlyIncome?: number;
-    sourcesOfIncome?: string;
-    sourcesOfFunds?: string[];
-    otherSourcesOfFunds?: string;
-    countriesOfFundsOrigin?: string[];
-    purposeOfFunds?: string[];
-    otherPurposesOfFunds?: string;
-    estimatedAmountOfTransactions?: string;
-    deleted?: boolean;
-}
-
-export interface ICorporateContactUpdateBody {
-    contactType?: string;
-    corporationName?: string;
-    corporationType?: string;
-    corporationIdNumber?: string;
-    dateOfConstitution?: Date;
-    countryOfConstitution?: string;
-    email?: string;
-    languagesSpoken?: string[];
-    phoneNumbers?: IPhoneNumber[];
-    isPep?: boolean;
-    namesOfPeps?: string[];
-    corporateRepresentatives?: ICorporateRepresentative[];
-    commercialReferences?: ICommercialReference[];
-    addresses?: IAddress[];
-    companyActivity?: string;
-    grossMonthlyIncome?: number;
-    sourcesOfIncome?: string;
-    sourcesOfFunds?: string[];
-    otherSourcesOfFunds?: string;
-    countriesOfFundsOrigin?: string[];
-    purposeOfFunds?: string[];
-    otherPurposesOfFunds?: string;
-    estimatedAmountOfTransactions?: string;
     deleted?: boolean;
 }

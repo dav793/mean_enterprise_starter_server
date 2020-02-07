@@ -1,8 +1,8 @@
 import { Document, Schema, Model, model, Types} from 'mongoose';
 
-import { IPhysicalContact } from './contact-interface';
+import {IAddress, IContact, IIdentification} from './contact-interface';
 
-export interface IPhysicalContactModel extends IPhysicalContact, Document {
+export interface IContactModel extends IContact, Document {
     _id: Types.ObjectId;
 }
 
@@ -24,7 +24,7 @@ export let AddressSchema: Schema = new Schema({
     postalCode: Number
 });
 
-export let PhysicalContactSchema: Schema = new Schema({
+export let ContactSchema: Schema = new Schema({
     contactType: {
         type: String
     },
@@ -37,7 +37,10 @@ export let PhysicalContactSchema: Schema = new Schema({
     lastName: {
         type: String
     },
-    mothersMaidenName: {
+    salutation: {
+        type: String
+    },
+    alias: {
         type: String
     },
     gender: {
@@ -46,14 +49,20 @@ export let PhysicalContactSchema: Schema = new Schema({
     maritalStatus: {
         type: String
     },
-    nationalities: {
-        type: [String]
+    dateOfBirth: {
+        type: String
     },
     countryOfBirth: {
         type: String
     },
-    birthDate: {
-        type: Date
+    corporateName: {
+        type: String
+    },
+    dateOfConstitution: {
+        type: String
+    },
+    countryOfConstitution: {
+        type: String
     },
     homePhoneNumber: {
         type: String
@@ -61,59 +70,22 @@ export let PhysicalContactSchema: Schema = new Schema({
     mobilePhoneNumber: {
         type: String
     },
-    email: {
+    workPhoneNumber: {
         type: String
     },
-    isPep: {
-        type: Boolean,
-        default: false
+    email: {
+        type: String
     },
     identifications: {
         type: [IdentificationSchema]
     },
-    address: {
+    addresses: {
         type: [AddressSchema]
     },
     profession: {
         type: String
     },
     jobPosition: {
-        type: String
-    },
-    companyName: {
-        type: String
-    },
-    companyActivity: {
-        type: String
-    },
-    companyPhoneNumber: {
-        type: String
-    },
-    companyAddressLine: {
-        type: String
-    },
-    grossMonthlyIncome: {
-        type: Number
-    },
-    sourcesOfIncome: {
-        type: String
-    },
-    sourcesOfFunds: {
-        type: [String]
-    },
-    otherSourcesOfFunds: {
-        type: String
-    },
-    countriesOfFundsOrigin: {
-        type: [String]
-    },
-    purposeOfFunds: {
-        type: [String]
-    },
-    otherPurposesOfFunds: {
-        type: String
-    },
-    estimatedAmountOfTransactions: {
         type: String
     },
     deleted: {
@@ -124,4 +96,4 @@ export let PhysicalContactSchema: Schema = new Schema({
     timestamps: true
 });
 
-export const PhysicalContact: Model<IPhysicalContactModel> = model<IPhysicalContactModel>('PhysicalContact', PhysicalContactSchema);
+export const Contact: Model<IContactModel> = model<IContactModel>('Contact', ContactSchema);
