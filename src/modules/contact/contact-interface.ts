@@ -16,13 +16,10 @@ export interface IIdentification {
 }
 
 export interface IContact {
-    contactType: string;
-
     firstName: string;
     middleName: string;
     lastName: string;
     salutation: string;
-    alias: string;
     gender: string;
     maritalStatus: string;
     dateOfBirth: string;
@@ -32,6 +29,8 @@ export interface IContact {
     dateOfConstitution: string;
     countryOfConstitution: string;
 
+    contactType: string;
+    alias: string;
     homePhoneNumber: string;
     mobilePhoneNumber: string;
     workPhoneNumber: string;
@@ -47,13 +46,10 @@ export interface IContact {
 }
 
 export interface IContactCreateBody {
-    contactType: string;
-
     firstName: string;
     middleName: string;
     lastName: string;
     salutation: string;
-    alias: string;
     gender: string;
     maritalStatus: string;
     dateOfBirth: string;
@@ -63,6 +59,8 @@ export interface IContactCreateBody {
     dateOfConstitution: string;
     countryOfConstitution: string;
 
+    contactType: string;
+    alias: string;
     homePhoneNumber: string;
     mobilePhoneNumber: string;
     workPhoneNumber: string;
@@ -74,13 +72,10 @@ export interface IContactCreateBody {
 }
 
 export interface IContactUpdateBody {
-    contactType?: string;
-
     firstName?: string;
     middleName?: string;
     lastName?: string;
     salutation?: string;
-    alias?: string;
     gender?: string;
     maritalStatus?: string;
     dateOfBirth?: string;
@@ -90,6 +85,8 @@ export interface IContactUpdateBody {
     dateOfConstitution?: string;
     countryOfConstitution?: string;
 
+    contactType?: string;
+    alias?: string;
     homePhoneNumber?: string;
     mobilePhoneNumber?: string;
     workPhoneNumber?: string;
