@@ -33,4 +33,6 @@ fi
 mongo $HOST/$DB_NAME -u $DB_USER -p $DB_PASSWORD --authenticationDatabase admin \
     clearDatabase.js \
     createDatabase.js \
-    createUsers.js
+    setVariables.js \
+    createUsers.js \
+    createContacts.js

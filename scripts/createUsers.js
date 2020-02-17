@@ -1,16 +1,4 @@
 
-var userId_admin = new ObjectId();
-var userId_visitor = new ObjectId();
-
-var userGroupId_admins = new ObjectId();
-var userGroupId_moderators = new ObjectId();
-
-var roleId_admin = new ObjectId();
-var roleId_visitor = new ObjectId();
-var roleId_moderator = new ObjectId();
-var roleId_writer = new ObjectId();
-
-
 //  ==== USERS ====
 
 // password is '12345678'
