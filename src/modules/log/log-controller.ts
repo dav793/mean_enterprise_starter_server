@@ -13,6 +13,8 @@ import {userControllerSingleton as UserController} from '../user/user/user-contr
 import {userGroupControllerSingleton as UserGroupController} from '../user/user-group/user-group-controller';
 import {roleControllerSingleton as RoleController} from '../user/role/role-controller';
 import {contactControllerSingleton as ContactController} from '../contact/contact-controller';
+import {relationDefinitionControllerSingleton as RelationDefinitionController} from '../relation/relation-definition/relation-definition-controller';
+import {relationInstanceControllerSingleton as RelationInstanceController} from '../relation/relation-instance/relation-instance-controller';
 
 import Utils from '../../shared/helpers/utils';
 
@@ -39,6 +41,12 @@ class LogController {
                 break;
             case LogResourceName.CONTACT:
                 action = OperationLogDal.addContactLog;
+                break;
+            case LogResourceName.RELATION_DEFINITION:
+                action = OperationLogDal.addRelationDefinitionLog;
+                break;
+            case LogResourceName.RELATION_INSTANCE:
+                action = OperationLogDal.addRelationInstanceLog;
                 break;
         }
 
@@ -76,6 +84,12 @@ class LogController {
             case LogResourceName.CONTACT:
                 logsFetcher = OperationLogDal.getContactLogsByIdAfterDate(targetLogEntry.documentId, targetLogEntry.datetime);
                 break;
+            case LogResourceName.RELATION_DEFINITION:
+                logsFetcher = OperationLogDal.getRelationDefinitionLogsByIdAfterDate(targetLogEntry.documentId, targetLogEntry.datetime);
+                break;
+            case LogResourceName.RELATION_INSTANCE:
+                logsFetcher = OperationLogDal.getRelationInstanceLogsByIdAfterDate(targetLogEntry.documentId, targetLogEntry.datetime);
+                break;
             default:
                 const err = new Error(`unrecognized entity: ${targetLogEntry.entity}`);
                 err.name = ErrorName.UNRECOGNIZED_ENTITY;
@@ -106,6 +120,12 @@ class LogController {
                         break;
                     case LogResourceName.CONTACT:
                         saveAction = ContactController.revertContact(targetLogEntry.documentId, newDoc as any, meta);
+                        break;
+                    case LogResourceName.RELATION_DEFINITION:
+                        saveAction = RelationDefinitionController.revertRelationDefinition(targetLogEntry.documentId, newDoc as any, meta);
+                        break;
+                    case LogResourceName.RELATION_INSTANCE:
+                        saveAction = RelationInstanceController.revertRelationInstance(targetLogEntry.documentId, newDoc as any, meta);
                         break;
                     default:
                         const err = new Error(`unrecognized entity: ${targetLogEntry.entity}`);

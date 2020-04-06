@@ -16,7 +16,7 @@ db.contacts.insert({
     "countryOfConstitution": "",
 
     "contactType": "1",
-    "alias": "",
+    "alias": "Alias 1",
     "homePhoneNumber": "123 456 789",
     "mobilePhoneNumber": "123 456 789",
     "workPhoneNumber": "123 456 789",
@@ -60,11 +60,11 @@ db.contacts.insert({
     "countryOfBirth": "",
 
     "corporateName": "Pollolandia",
-    "dateOfConstitution": "29/7/1986",
+    "dateOfConstitution": "29/7/1926",
     "countryOfConstitution": "CRI",
 
     "contactType": "2",
-    "alias": "",
+    "alias": "Alias 2",
     "homePhoneNumber": "123 456 789",
     "mobilePhoneNumber": "123 456 789",
     "workPhoneNumber": "123 456 789",

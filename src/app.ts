@@ -15,6 +15,7 @@ import UserGroupRouter from './modules/user/user-group/user-group-router';
 import RoleRouter from './modules/user/role/role-router';
 import PermissionRouter from './modules/user/permission/permission-router';
 import ContactRouter from './modules/contact/contact-router';
+import RelationRouter from './modules/relation/relation-router';
 import TestRouter from './modules/user/test/test-router';
 import Test2Router from './modules/user/test/test2-router';
 
@@ -104,6 +105,7 @@ class App {
         this.express.use('/api/roles',          authenticate, (req, res, next) => { next(); });
         this.express.use('/api/permissions',    authenticate, (req, res, next) => { next(); });
         this.express.use('/api/contacts',       authenticate, (req, res, next) => { next(); });
+        this.express.use('/api/relations',       authenticate, (req, res, next) => { next(); });
         this.express.use('/api/tests',          authenticate, (req, res, next) => { next(); });
         this.express.use('/api/tests2',         authenticate, (req, res, next) => { next(); });
     }
@@ -119,6 +121,7 @@ class App {
         this.express.use('/api/roles',          RoleRouter);
         this.express.use('/api/permissions',    PermissionRouter);
         this.express.use('/api/contacts',       ContactRouter);
+        this.express.use('/api/relations',      RelationRouter);
         this.express.use('/api/tests',          TestRouter);
         this.express.use('/api/tests2',         Test2Router);
 

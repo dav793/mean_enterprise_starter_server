@@ -110,6 +110,24 @@ db.roles.insert({
                 { "action": "update",   "level": 3 },
                 { "action": "delete",   "level": 3 }
             ]
+        },
+        {
+            "name": "relationDefinition",
+            "permissions": [
+                { "action": "create",   "level": 3 },
+                { "action": "read",     "level": 3 },
+                { "action": "update",   "level": 3 },
+                { "action": "delete",   "level": 3 }
+            ]
+        },
+        {
+            "name": "relationInstance",
+            "permissions": [
+                { "action": "create",   "level": 3 },
+                { "action": "read",     "level": 3 },
+                { "action": "update",   "level": 3 },
+                { "action": "delete",   "level": 3 }
+            ]
         }
     ],
     "createdAt": ISODate("2019-03-04T00:25:39.154Z"),
@@ -158,6 +176,24 @@ db.roles.insert({
         },
         {
             "name": "contact",
+            "permissions": [
+                { "action": "create",   "level": 3 },
+                { "action": "read",     "level": 3 },
+                { "action": "update",   "level": 3 },
+                { "action": "delete",   "level": 1 }
+            ]
+        },
+        {
+            "name": "relationDefinition",
+            "permissions": [
+                { "action": "create",   "level": 3 },
+                { "action": "read",     "level": 3 },
+                { "action": "update",   "level": 3 },
+                { "action": "delete",   "level": 1 }
+            ]
+        },
+        {
+            "name": "relationInstance",
             "permissions": [
                 { "action": "create",   "level": 3 },
                 { "action": "read",     "level": 3 },

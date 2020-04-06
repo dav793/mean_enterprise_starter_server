@@ -11,5 +11,6 @@ export enum LogResourceName {
     USER_GROUP          = 'userGroup',
     ROLE                = 'role',
     CONTACT             = 'contact',
-    ACCOUNT             = 'account'
+    RELATION_DEFINITION     = 'relationDefinition',
+    RELATION_INSTANCE       = 'relationInstance'
 }
