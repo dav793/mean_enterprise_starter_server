@@ -15,52 +15,52 @@ export class RelationRouter {
 
     init() {
 
-        this.router.get('/definition',
+        this.router.get('/definitions',
             authorize(ResourceName.CONTACT, PermissionAction.READ, PermissionLevel.ALLOW),
             relationExpress.getAllRelationDefinitions
         );
 
-        this.router.get('/instance',
+        this.router.get('/instances',
             authorize(ResourceName.CONTACT, PermissionAction.READ, PermissionLevel.ALLOW),
             relationExpress.getAllRelationInstances
         );
 
-        this.router.get('/definition/:id',
+        this.router.get('/definitions/:id',
             authorize(ResourceName.CONTACT, PermissionAction.READ, PermissionLevel.ALLOW),
             relationExpress.getRelationDefinitionById
         );
 
-        this.router.get('/instance/:id',
+        this.router.get('/instances/:id',
             authorize(ResourceName.CONTACT, PermissionAction.READ, PermissionLevel.ALLOW),
             relationExpress.getRelationInstanceById
         );
 
-        this.router.post('/definition',
+        this.router.post('/definitions',
             authorize(ResourceName.CONTACT, PermissionAction.CREATE, PermissionLevel.ALLOW),
             relationExpress.createRelationDefinition
         );
 
-        this.router.post('/instance',
+        this.router.post('/instances',
             authorize(ResourceName.CONTACT, PermissionAction.CREATE, PermissionLevel.ALLOW),
             relationExpress.createRelationInstance
         );
 
-        this.router.put('/definition/:id',
+        this.router.put('/definitions/:id',
             authorize(ResourceName.CONTACT, PermissionAction.UPDATE, PermissionLevel.ALLOW),
             relationExpress.updateRelationDefinition
         );
 
-        this.router.put('/instance/:id',
+        this.router.put('/instances/:id',
             authorize(ResourceName.CONTACT, PermissionAction.UPDATE, PermissionLevel.ALLOW),
             relationExpress.updateRelationInstance
         );
 
-        this.router.delete('/definition/:id',
+        this.router.delete('/definitions/:id',
             authorize(ResourceName.CONTACT, PermissionAction.DELETE, PermissionLevel.ALLOW),
             relationExpress.deleteRelationDefinition
         );
 
-        this.router.delete('/instance/:id',
+        this.router.delete('/instances/:id',
             authorize(ResourceName.CONTACT, PermissionAction.DELETE, PermissionLevel.ALLOW),
             relationExpress.deleteRelationInstance
         );
